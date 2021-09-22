@@ -1,0 +1,34 @@
+security:
+  enable_authenticator_manager: true
+  password_hashers:
+    App\Entity\User:
+      algorithm: auto
+
+  providers:
+    # used to reload user from session & other features (e.g. switch_user)
+    app_user_provider:
+      entity:
+        class: App\Entity\User
+        property: email
+  firewalls:
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|images|js)/
+      security: false
+    main:
+      lazy: true
+#      provider: app_user_provider
+
+#      form_login: ~
+#      http_basic: ~
+#      entry_point: form_login
+#      custom_authenticators:
+#        - App\Security\LoginFormAuthenticator
+#        - App\Security\ApiKeyAuthenticator
+#      logout:
+#        path: app_logout
+        # where to redirect after logout
+        # target: app_any_route
+
+#  access_control:
+#    - { path: ^/index, roles: ROLE_ADMIN }
+#    - { path: ^/api/users}

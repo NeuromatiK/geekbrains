@@ -1,0 +1,29 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+index:
+  path: /index
+  methods:
+    - GET
+  controller: App\Controller\IndexController::index
+
+api_users_get:
+  path: /api/users
+  methods:
+    - GET
+  controller: App\Controller\API\UserController::index
+
+#auth
+api_login:
+  path: /api/login
+  methods:
+    - POST
+  controller: App\Controller\API\TokenController::login
+
+api_refresh_access:
+  path: /api/refresh
+  methods:
+    - POST
+  controller: App\Controller\API\TokenController::refresh
+
